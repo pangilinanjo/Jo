@@ -1,10 +1,17 @@
-/* BASE STYLES*/
- * {
+/* RESET AND BASE STYLES */
+* {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
+body, header, nav, main, footer, h1, div, img, ul, section, article {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+/* BODY AND IMAGE */
 body {
   font-family: 'Libre Baskerville', serif;
   color: #2e2e2e;
@@ -16,26 +23,32 @@ body {
   font-size: 1.15rem;
 }
 
-#container {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-}
-
 img {
   max-width: 100%;
   height: auto;
   display: block;
 }
 
-/* HEADER & NAVIGATION*/
- header {
+/* CONTAINERS */
+#container, #container-contact {
+  flex: 1;
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  flex-direction: column;
+}
+
+#container-contact {
+  padding: 0;
+  text-align: center;
+}
+
+/* HEADER AND NAVIGATION */
+header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
   background: #FFEDF7;
-  padding: 1em 3em;
+  padding: 1em;
   min-height: 80px;
   position: sticky;
   top: 0;
@@ -44,27 +57,35 @@ img {
 
 .logo img {
   max-width: 140px;
+  margin-bottom: 0.8em;
+}
+
+nav {
+  width: 100%;
 }
 
 nav ul {
   list-style: none;
   display: flex;
-  flex-direction: row;
-  justify-content: flex-end;
-  gap: 2em;
-  width: auto;
+  flex-direction: column;
+  text-align: center;
+  width: 100%;
 }
 
 nav li {
-  border: none;
+  border-top: 1px solid #E0B2E7;
+}
+
+nav li:first-child {
+  border-top: none;
 }
 
 nav li a {
   display: block;
   font-family: 'Cormorant Garamond', serif;
-  font-size: 1.3rem;
+  font-size: 1.25rem;
   color: #E0B2E7;
-  padding: 0.8em 1.5em;
+  padding: 0.8em 1em;
   text-decoration: none;
   transition: 0.3s;
 }
@@ -76,56 +97,47 @@ nav li a.active {
   font-weight: bold;
 }
 
-/* HERO SECTION  */
- .hero {
+/* HERO SECTION */
+.hero {
   flex: 1;
-  padding: 80px 100px;
+  padding: 60px 30px;
 }
 
 .hero-content {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 60px;
-}
-
-#hero_image {
-  flex: 1;
-  text-align: center;
+  gap: 40px;
+  flex-wrap: wrap;
 }
 
 #hero_image img {
   border-radius: 15px;
-  max-width: 420px;
 }
 
 .hero-text {
-  flex: 1;
-  padding: 20px;
   max-width: 600px;
 }
 
 .hero-text h1 {
-  font-size: 3rem;
-  line-height: 1.3;
+  font-size: 2.5rem;
   margin-bottom: 10px;
   color: #000;
 }
 
 .hero-text .creator {
   font-style: italic;
-  text-align: right;
 }
 
 blockquote {
   margin-bottom: 1.5em;
 }
 
-/* BUTTONS */
- .btn {
+/* BUTTON STYLES */
+.btn {
   margin-top: 1em;
   display: inline-block;
-  padding: 16px 32px;
+  padding: 14px 28px;
   background: #FFEDF7;
   color: #E0B2E7;
   border-radius: 12px;
@@ -139,47 +151,60 @@ blockquote {
   color: #fff;
 }
 
+input[type="submit"],
+button[type="submit"] {
+  background: #8E6694;
+  color: #E0B2E7;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 10px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+input[type="submit"]:hover,
+button[type="submit"]:hover {
+  background: #E0B2E7;
+  color: #fff;
+}
+
 /* ABOUT PAGE */
- main.about {
+main.about {
   max-width: 1200px;
   margin: 50px auto;
   padding: 0 20px;
 }
 
 main.about h1 {
-  font-size: 2.5rem;
+  font-size: 2.2rem;
   margin-bottom: 30px;
 }
 
 .about-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 40px;
+  grid-template-columns: 1fr;
+  gap: 30px;
 }
 
 .card {
   background-color: #FFEDF7;
-  padding: 30px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  padding: 25px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
   border-radius: 12px;
 }
 
 .card h2 {
   margin-bottom: 15px;
-  font-size: 1.6rem;
+  font-size: 1.4rem;
 }
 
-.card img {
-  border-radius: 12px;
-  margin: 0 auto 20px auto;
-}
-
+.card img,
 .about-grid article img {
   border-radius: 12px;
   margin: 0 auto 15px auto;
 }
 
-/* Reflection Section */
+/* REFLECTION SECTION */
 #reflection {
   clear: left;
   background: linear-gradient(to left, #FFEDF7 0%, #E0B2E7 100%);
@@ -196,7 +221,22 @@ main.about h1 {
   margin-bottom: 1.2em;
 }
 
-/* Certifications */
+/* INQUIRY BOX */
+.inquiry-box {
+  padding: 1em;
+  margin: 1.5em;
+  text-align: center;
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
+.inquiry-box a {
+  color: #8E6694;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* CERTIFICATIONS */
 main.certifications {
   max-width: 1200px;
   margin: 50px auto;
@@ -244,7 +284,7 @@ main.certifications h1 {
   margin-bottom: 15px;
 }
 
-/* Contact Page */
+/* CONTACT PAGE */
 main.contact {
   max-width: 1200px;
   margin: 40px auto;
@@ -282,7 +322,7 @@ main.contact h2 {
   font-size: 1.4rem;
 }
 
-/* Table Styling */
+/* TABLE STYLING */
 .table-responsive {
   overflow-x: auto;
   display: flex;
@@ -325,7 +365,7 @@ table tr:nth-child(even) td {
   background-color: #8E6694;
 }
 
-/* Contact Form */
+/* CONTACT FORM */
 .message-form {
   background: #FFEDF7;
   padding: 30px;
@@ -370,9 +410,9 @@ table tr:nth-child(even) td {
 }
 
 /* FOOTER */
- footer {
+footer {
   background: #FFEDF7;
-  padding: 35px 50px;
+  padding: 25px;
   text-align: center;
   margin-top: auto;
   font-family: 'Raleway', sans-serif;
@@ -399,19 +439,88 @@ footer p {
   color: #444;
 }
 
+/* UTILITY CLASSES */
 .mobile { display: block; }
+.tablet-desktop { display: none; }
 
-/*DESKTOP VIEW*/
-@media screen and (min-width: 1024px) {
+/* TABLET VIEWPORT */
+@media screen and (min-width: 630px), print {
 
-  /* Hero Section */
+  header {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1em 2em;
+  }
+
+  .logo img { margin-bottom: 0; }
+
+  nav ul {
+    flex-direction: row;
+    justify-content: flex-end;
+    gap: 1.5em;
+    border: none;
+    width: auto;
+  }
+
+  nav li { border: none; }
+
+  nav li a {
+    font-size: 1.3rem;
+    padding: 0.6em 1.2em;
+  }
+
+  .about-grid { grid-template-columns: 1fr 1fr; }
+
+  .mobile { display: none; }
+  .tablet-desktop { display: block; }
+
+  .hero-content {
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: flex-start;
+    text-align: left;
+    gap: 40px;
+  }
+
+  #hero_image { flex: 1; text-align: right; }
+  .hero-text { flex: 1; text-align: left; }
+  .hero-text .creator { text-align: right; }
+
+  .cert-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
+
+  main.contact { text-align: center; margin: 0 auto; }
+  .contact-info { text-align: center; max-width: 90%; margin: 0 auto; }
+
+  table { 
+    font-size: 1rem; 
+    margin: 0 auto 2.5em auto; 
+    max-width: 90%; 
+  }
+
+  .message-form { 
+    padding: 40px; 
+    margin: 2.5em auto 0 auto; 
+    text-align: center; 
+    max-width: 700px; 
+  }
+
+  .message-form label {
+    text-align: left;
+    display: block;
+    width: 100%;
+  }
+}
+
+/* DESKTOP VIEWPORT */
+@media screen and (min-width: 1015px), print {
+
   .hero {
     padding: 80px 100px;
   }
 
-  .hero-content {
-    gap: 60px;
-  }
+  .hero-content { gap: 60px; }
 
   #hero_image {
     flex: 1;
@@ -437,91 +546,13 @@ footer p {
     font-size: 1.1rem;
   }
 
-  /* About Page */
-  .about-grid {
-    grid-template-columns: 1fr 1fr;
-    gap: 40px;
-  }
+  footer { padding: 35px 50px; }
 
-  #reflection {
-    max-width: 1100px;
-    margin: 50px auto;
-    padding: 40px 30px;
-  }
+  .cert-grid { gap: 60px; }
 
-  footer {
-    padding: 35px 50px;
-  }
-
-  main.about {
-    max-width: 1200px;
-    margin: 50px auto;
-    padding: 0 20px;
-  }
-
-  main.about h1 {
-    font-size: 2.5rem;
-  }
-
-  .card {
-    background-color: #FFEDF7;
-    padding: 30px;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  }
-
-  .card h2 {
-    font-size: 1.6rem;
-  }
-
-  .card img {
-    border-radius: 12px;
-    margin-bottom: 20px;
-  }
-
-  body {
-    font-size: 1.15rem;
-    line-height: 1.6;
-  }
-
-  header {
-    padding: 1em 3em;
-  }
-
-  nav ul {
-    flex-direction: row;
-    justify-content: flex-end;
-    gap: 2em;
-  }
-
-  nav li a {
-    font-size: 1.3rem;
-    padding: 0.8em 1.5em;
-  }
-
-  .mobile { display: none; }
-
-  .cert-grid {
-    grid-template-columns: repeat(2, 1fr); 
-    gap: 60px;
-    align-items: start;
-    justify-content: center;
-  }
-
-  main.contact {
-    text-align: center;
-    margin: 0 auto;
-  }
-
-  main.contact h1 {
-    font-size: 2.2rem;
-  }
-
-  .contact-info {
-    max-width: 70%;
-    margin: 0 auto;
-    text-align: center;
-  }
+  main.contact { text-align: center; margin: 0 auto; }
+  main.contact h1 { font-size: 2.2rem; }
+  .contact-info { max-width: 70%; margin: 0 auto; text-align: center; }
 
   table {
     font-size: 1.05rem;
@@ -540,5 +571,122 @@ footer p {
     text-align: left;
     display: block;
     width: 100%;
-  } 
+  }
+}
+
+/* MOBILE VIEWPORT */
+@media screen and (max-width: 699px), print {
+
+  blockquote { text-align: center; }
+  blockquote h1 { font-size: 2rem; line-height: 1.4; }
+
+  .hero-text { text-align: center; }
+  .hero-text .btn { margin: 1em auto 0 auto; }
+
+  .hero-text .creator {
+    display: block;
+    margin-top: 0.5em;
+    text-align: right;
+    font-style: italic;
+  }
+
+  .inquiry-box p { margin-bottom: 0.8em; }
+
+  .inquiry-box .tel-link a {
+    display: inline-block;
+    padding: 14px 28px;
+    background: #FFEDF7;
+    color: #E0B2E7;
+    border-radius: 12px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: 0.3s;
+  }
+
+  .inquiry-box .tel-link a:hover {
+    background: #E0B2E7;
+    color: #fff;
+  }
+
+  main.contact { padding: 20px 15px; text-align: center; }
+
+  .contact-info {
+    text-align: center;
+    margin: 1.5em auto;
+    font-size: 1rem;
+    max-width: 100%;
+  }
+
+  .contact-info p, 
+  .contact-info a {
+    display: block;
+    text-align: center;
+    word-break: break-word;
+  }
+
+  .message-form {
+    padding: 20px;
+    text-align: center;
+  }
+
+  .message-form form { align-items: center; }
+
+  .message-form input,
+  .message-form textarea {
+    max-width: 100%;
+  }
+
+  .message-form label {
+    text-align: left;
+    width: 100%;
+  }
+}
+
+/* LARGE DESKTOP VIEWPORT */
+@media screen and (min-width: 1921px) {
+  #container {
+    width: 1920px;
+    margin: 0 auto;
+  }
+
+  table {
+    width: 80%;
+  }
+
+  main.certifications,
+  main.contact {
+    max-width: 1600px;
+  }
+
+  .hero {
+    padding: 100px 200px;
+  }
+}
+
+/* PRINT STYLES */
+@media print {
+  body {
+    background-color: white;
+    color: black;
+  }
+
+  main {
+    font-size: 12pt;
+    color: black;
+    line-height: 1.5;
+  }
+
+  table, th, td {
+    border: 1px solid black;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  th {
+    background-color: white;
+    color: black;
+  }
 }
