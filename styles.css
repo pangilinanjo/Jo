@@ -573,7 +573,7 @@ footer p {
 }
 
 /* MOBILE VIEWPORT */
-@media screen and (max-width: 699px), print {
+@media screen and (max-width: 699px) {
   nav ul {
   flex-direction: column;
   width: 100%;
