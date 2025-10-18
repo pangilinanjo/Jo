@@ -445,7 +445,6 @@ footer p {
 
 /* TABLET VIEWPORT */
 @media screen and (min-width: 630px), print {
-
   header {
     flex-direction: row;
     justify-content: space-between;
@@ -515,7 +514,6 @@ footer p {
 
 /* DESKTOP VIEWPORT */
 @media screen and (min-width: 1015px), print {
-
   .hero {
     padding: 80px 100px;
   }
@@ -576,6 +574,26 @@ footer p {
 
 /* MOBILE VIEWPORT */
 @media screen and (max-width: 699px), print {
+  nav ul {
+  flex-direction: column;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0;
+}
+
+nav li a {
+  font-size: 1rem;
+  padding: 0.4em 0.8em;
+}
+
+header {
+  padding: 0.6em;
+}
+
+.logo img {
+  max-width: 110px;
+  margin-bottom: 0.4em;
+}
 
   blockquote { text-align: center; }
   blockquote h1 { font-size: 2rem; line-height: 1.4; }
